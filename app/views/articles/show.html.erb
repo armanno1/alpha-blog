@@ -1,15 +1,33 @@
 <h2 align="center"><%= @article.title %></h2>
-<div class="well col-xs-8 col-xs-offset-2"> <strong class="center description">Desc:</strong>
-  <%= simple_format(@article.description) %> <br />
-      <% if @article.user %>
-        By: <%= @article.user.username %>
-      <% end %>
-  <div class="article-actions">
-    <%= link_to "Edit this article", edit_article_path(@article), class: "btn btn-xs btn-primary" %>
-    <%= link_to "Delete this article", article_path(@article),
-                          method: :delete,
-                          data: {confirm: "Are you sure?"},
-                          class: "btn btn-xs btn-danger" %>
-    <%= link_to "View all articles", articles_path, class: "btn btn-xs btn-success" %>
+<div class="row well">
+
+  <% if @article.user %>
+    <div class="col-xs-2">
+      <ul class="listing" style="list-style:none; text-align:left; padding-left: 0px;">
+        <div class="row">
+          <li><%= link_to gravatar_for(@article.user), user_path(@article.user) %></li>
+          <li class="article-title">
+            <%= link_to @article.user.username, user_path(@article.user)%>
+          </li>
+          <li><small><%= pluralize(@article.user.articles.count, "article") if @article.user.articles.present? %></small></li>
+        </div>
+      </ul>
+    </div>
+<% end %>
+
+  <div class="col-xs-10"> <strong class="center description">Desc:</strong>
+    <%= simple_format(@article.description) %> <br />
+        <% if @article.user %>
+          By: <%= @article.user.username %>
+        <% end %>
+    <div class="article-actions">
+      <%= link_to "Edit this article", edit_article_path(@article), class: "btn btn-xs btn-primary" %>
+      <%= link_to "Delete this article", article_path(@article),
+                            method: :delete,
+                            data: {confirm: "Are you sure?"},
+                            class: "btn btn-xs btn-danger" %>
+      <%= link_to "View all articles", articles_path, class: "btn btn-xs btn-success" %>
+    </div>
   </div>
+
 </div>
