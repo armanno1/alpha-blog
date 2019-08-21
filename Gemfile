@@ -6,7 +6,9 @@ ruby '2.6.3'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.0.rc2'
 # Use sqlite3 as the database for Active Record
-
+#pagination functionality
+gem 'will_paginate', '3.1.7'
+gem 'bootstrap-will_paginate', '1.0.0'
 #use bcrypt for secure passwords
 gem 'bcrypt', '~> 3.1', '>= 3.1.12'
 # Use Puma as the app server
