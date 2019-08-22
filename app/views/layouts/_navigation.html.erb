@@ -24,6 +24,7 @@
           <li><%= link_to "Log out", logout_path, method: :delete, class: "white" %></li>
           <li><%= link_to "Edit Profile", edit_user_path(current_user), class: "white" %></li>
           <li><%= link_to "View Profile", user_path(current_user), class: "white" %></li>
+          <% if current_user.admin? %><li><%= link_to "Admin", "#", class: "white" %></li><% end %>
         <% else %>
           <li><%= link_to "Log in", login_path, class: "white" %></li>
           <li><%= link_to "Sign in", signup_path, class: "white" %></li>
