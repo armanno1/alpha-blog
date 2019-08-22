@@ -8,16 +8,16 @@ $navbar-default-bg: #2c3e50;
   border-radius: 0px;
 }
 
+#bs-example-navbar-collapse-1 a:link, #bs-example-navbar-collapse-1 .white {
+  color: #EFEFEF !important;
+}
+
 .navbar-brand {
   float: left;
   font-size: 1.7em;
   text-transform: uppercase;
   letter-spacing: -1px;
   font-weight: bold;
-}
-
-.nav .navbar-nav a:link {
-  color: #EFEFEF;
 }
 
 #logo {
