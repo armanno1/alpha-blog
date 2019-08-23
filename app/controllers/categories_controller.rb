@@ -1,16 +1,30 @@
 class CategoriesController < ApplicationController
 
   def new
+    @category = Category.new
+  end
+
+  def create
+    @category = Category.new(category_params)
+    if @category.save
+      flash[:success] = "category saved"
+      redirect_to categories_path
+    else
+      render 'new'
+      flash[:danger] = "error"
+    end
   end
 
   def show
   end
 
   def index
+    @categories = Category.paginate(page: params[:page], per_page: 5)
   end
 
   private
   def category_params
-    
+    params.require(:category).permit(:name)
   end
+
 end
